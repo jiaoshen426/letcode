@@ -1,7 +1,5 @@
 package com.jiaoshen.sort;
 
-import com.jiaoshen.sort.utils.SortUtils;
-
 import java.util.Arrays;
 
 /**
@@ -15,6 +13,7 @@ public class InsertSort
         sort(nums);
         System.out.println(Arrays.toString(nums));
     }
+
     public static <E extends  Comparable<E>> void  sort(E[] nums){
         for (int i = 1; i < nums.length; i++) {
             E temp = nums[i];
