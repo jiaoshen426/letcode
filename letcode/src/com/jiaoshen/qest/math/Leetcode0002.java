@@ -1,8 +1,4 @@
-package com.jiaoshen.qest;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+package com.jiaoshen.qest.math;
 
 public class Leetcode0002 {
 

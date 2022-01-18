@@ -1,4 +1,4 @@
-package com.jiaoshen.qest;
+package com.jiaoshen.qest.math;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +14,7 @@ public class Leetcode0001 {
             for (int j = i+1; j < nums.length; j++) {
                 if(nums[i] +nums[j] == target){
                     return  new int[]{i,j};
+
                 }
             }
         }

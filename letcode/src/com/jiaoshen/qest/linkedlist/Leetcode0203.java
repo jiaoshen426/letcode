@@ -1,4 +1,4 @@
-package com.jiaoshen.qest;
+package com.jiaoshen.qest.linkedlist;
 
 public class Leetcode0203 {
     public static ListNode removeElements(ListNode head, int val) {
