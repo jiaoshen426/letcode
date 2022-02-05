@@ -1,4 +1,4 @@
-package com.jiaoshen.sort;
+package com.jiaoshen.study.sort;
 
 import java.util.Arrays;
 

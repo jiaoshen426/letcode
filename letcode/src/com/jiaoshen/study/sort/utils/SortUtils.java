@@ -1,4 +1,4 @@
-package com.jiaoshen.sort.utils;
+package com.jiaoshen.study.sort.utils;
 
 public class SortUtils {
     /**

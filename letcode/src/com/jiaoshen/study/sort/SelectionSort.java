@@ -1,6 +1,6 @@
-package com.jiaoshen.sort;
+package com.jiaoshen.study.sort;
 
-import com.jiaoshen.sort.utils.SortUtils;
+import com.jiaoshen.study.sort.utils.SortUtils;
 
 import java.util.Arrays;
 
