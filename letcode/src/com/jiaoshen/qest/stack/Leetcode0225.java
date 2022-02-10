@@ -5,6 +5,7 @@ import java.util.Queue;
 
 /**
  *225. 用队列实现栈
+ * 循环
  */
 public class Leetcode0225 {
     Queue<Integer> queue;
