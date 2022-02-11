@@ -1,5 +1,6 @@
 package com.jiaoshen.study.sort;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -14,18 +15,42 @@ public class MergeSort {
         sort(nums);
         System.out.println(Arrays.toString(nums));
     }
-
     public static <E extends  Comparable<E>> void  sort(E[] nums){
-        for (int i = 1; i < nums.length; i++) {
-            E temp = nums[i];
-            for (int j = i;  j-1>0; j--) {
-                if(nums[j-1].compareTo(temp) >0){
-                    nums[j] = nums[j-1];
-                }else{
-                    nums[j] = temp;
-                    break;
-                }
+         excuteSort(nums,0,nums.length-1);
+
+    }
+
+    public static <E extends  Comparable<E>> void  excuteSort(E[] nums, int l, int r){
+        if(l>=r){
+            return;
+        }
+        int mid = (l+r)>>1;
+        excuteSort(nums,l,mid);
+        excuteSort(nums,mid+1,r);
+        merge(nums,l,r,mid);
+
+
+
+    }
+    public static <E extends  Comparable<E>> void merge(E[] nums,int l, int r ,int mid){
+        int index1  =l;
+        int index2 = mid+1;
+        int newArrayIndex =l;
+        Object[] temp = new Object[nums.length] ;
+        while (index1<=mid || index2<=r ){
+            if(index1>mid){
+                temp[newArrayIndex] = nums[index2];
+                index2++;
+            }else  if(index2>r){
+                temp[newArrayIndex] = nums[index1];
+                index1++;
+            }else{
+                temp[newArrayIndex] = nums[index1].compareTo(nums[index2])>0?nums[index1++]:nums[index2++];
             }
+            newArrayIndex++;
+        }
+        for (int i = l; i <= r; i++) {
+            nums[i] = (E)temp[i];
         }
     }
 }
