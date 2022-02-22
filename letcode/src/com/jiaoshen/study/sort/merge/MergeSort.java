@@ -1,4 +1,4 @@
-package com.jiaoshen.study.sort;
+package com.jiaoshen.study.sort.merge;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -53,4 +53,6 @@ public class MergeSort {
             nums[i] = (E)temp[i];
         }
     }
+
+
 }
