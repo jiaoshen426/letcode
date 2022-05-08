@@ -17,7 +17,6 @@ public class MergeSort {
     }
     public static <E extends  Comparable<E>> void  sort(E[] nums){
          excuteSort(nums,0,nums.length-1);
-
     }
 
     public static <E extends  Comparable<E>> void  excuteSort(E[] nums, int l, int r){
@@ -32,6 +31,15 @@ public class MergeSort {
 
 
     }
+
+    /**
+     * 递归实现归并算法
+     * @param nums
+     * @param l
+     * @param r
+     * @param mid
+     * @param <E>
+     */
     public static <E extends  Comparable<E>> void merge(E[] nums,int l, int r ,int mid){
         int index1  =l;
         int index2 = mid+1;
