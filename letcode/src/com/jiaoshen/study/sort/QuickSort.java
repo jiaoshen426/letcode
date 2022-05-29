@@ -1,5 +1,8 @@
 package com.jiaoshen.study.sort;
 
+import com.jiaoshen.study.sort.utils.SortUtils;
+import com.jiaoshen.util.ArraysUtils;
+
 import java.util.Arrays;
 
 /**
@@ -15,27 +18,33 @@ public class QuickSort {
     }
 
     public static <E extends  Comparable<E>> void  sort(E[] nums){
-        for (int i = 1; i < nums.length; i++) {
-            E temp = nums[i];
-            for (int j = i;  j-1>0; j--) {
-                if(nums[j-1].compareTo(temp) >0){
-                    nums[j] = nums[j-1];
-                }else{
-                    nums[j] = temp;
-                    break;
-                }
-            }
-        }
+        excuteSort(nums,0,nums.length-1);
     }
 
     public static <E extends  Comparable<E>> void excuteSort(E[] nums,int startPoint,int endPoint){
-        if(startPoint >= endPoint ||endPoint >nums.length || startPoint<=0){
+
+        if(startPoint >= endPoint ||endPoint >nums.length || startPoint<0){
             return;
         }
-        E temp = nums[startPoint];
-       /* for(int statrIndex =startPoint +1; )
-        if()
-*/
+        int lessAndEqualIndex = startPoint;
+        int lessIndex = startPoint;
+        E pivot = nums[endPoint];
+        for (int i = startPoint; i < endPoint; i++) {
+            if(nums[i].compareTo(pivot)<=0){
+                lessAndEqualIndex++;
+                if((nums[i].compareTo(pivot)<0)){
+                    SortUtils.swap(nums,i,lessIndex);
+                    lessIndex++;
+
+                }
+            }
+
+        }
+        SortUtils.swap(nums,lessAndEqualIndex,endPoint);
+        excuteSort(nums,startPoint,lessIndex-1);
+        excuteSort(nums,lessAndEqualIndex+1,endPoint);
+
+
 
 
     }
