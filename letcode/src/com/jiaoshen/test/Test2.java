@@ -1,6 +1,9 @@
 package com.jiaoshen.test;
 
-import java.util.Arrays;
+import com.google.common.collect.Collections2;
+
+import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * @author jiaoshen
@@ -8,9 +11,25 @@ import java.util.Arrays;
  */
 public class Test2 {
     public static void main(String[] args) {
-//        int[] nums = {1, 3, 2, 3, 1};
-//        System.out.println(reversePairs(nums));
-        System.out.println("".split(",").length);
+        List<String> strList = Arrays.asList("g", "h", "o", "s", "t");
+        getSortName("",strList);
+    }
+
+
+    public static void getSortName(String pre, List<String> strList) {
+        if (strList.size() == 1) {
+            System.out.println(pre +strList.get(0));
+            return;
+        }
+        if (strList.size() == 0) {
+            System.out.println(pre );
+            return;
+        }
+        for (int i = 0; i < strList.size(); i++) {
+            //List<String> childList =  IntStream.range(0, strList.size()).map(item->strList.get(item)).collect.to;
+
+            getSortName(pre + strList.get(i), strList);
+        }
     }
 
 
@@ -40,7 +59,7 @@ public class Test2 {
             } else if (indexRight > right) {
                 temp[i++] = a[indexLeft++];
             } else {
-                if (a[indexLeft] > (a[indexRight] *2)) {
+                if (a[indexLeft] > (a[indexRight] * 2)) {
 
                     result += (right - indexRight + 1);
                     temp[i++] = a[indexLeft++];
