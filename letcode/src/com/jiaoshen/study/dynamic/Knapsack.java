@@ -23,16 +23,18 @@ public class Knapsack {
     // index 0~N
     // rest 负~bag
     public static int process(int[] w, int[] v, int index, int rest) {
-        if(index == w.length){
-            return 0;
-        }
         if(rest < 0){
             return -1;
         }
+        if(index == w.length){
+            return 0;
+        }
 
-        int noPick = process( w,  v,  index,  rest)
 
-
+        int noPick = process( w,  v,  index+1,  rest);
+        int next =  process(w,  v,  index+1,  rest-w[index]);
+        int pick =next>-1?(v[index]+next):0;
+        return Math.max(noPick,pick);
     }
 
     public static int dp(int[] w, int[] v, int bag) {
@@ -40,6 +42,20 @@ public class Knapsack {
             return 0;
         }
 
+        int N = w.length;
+        int[][] dp = new int[N + 1][bag + 1];
+
+        for (int index = N-1; index >= 0; index--) {
+            for (int rest = 0; rest <= bag; rest++) {
+                int noPick = dp[index+1][rest];
+                int pick = 0;
+                if(w[index]<=rest){
+                    pick = v[index]+dp[index+1][rest-w[index]];
+                }
+                dp[index][rest] = Math.max(noPick,pick);
+            }
+        }
+        return dp[0][bag];
     }
 
     public static void main(String[] args) {
