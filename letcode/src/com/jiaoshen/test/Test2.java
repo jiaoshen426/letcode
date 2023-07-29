@@ -11,8 +11,10 @@ import java.util.stream.IntStream;
  */
 public class Test2 {
     public static void main(String[] args) {
-        List<String> strList = Arrays.asList("g", "h", "o", "s", "t");
-        getSortName("",strList);
+//        List<String> strList = Arrays.asList("g", "h", "o", "s", "t");
+//        getSortName("",strList);
+         int[] a = new int[8];
+         System.out.println(a[1]);
     }
 
 
