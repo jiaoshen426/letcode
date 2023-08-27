@@ -15,7 +15,8 @@ public class DebugTest {
         List l2 =  testlist.stream().map(item->item =item+1).sorted(Integer::compareTo).collect(Collectors.toList());
         System.out.println(l2);
         LinkedList<Integer> list = new LinkedList<>();
-        list.peekFirst()
+        //
+        // list.peekFirst()
 
     }
 }
