@@ -1,9 +1,6 @@
 package com.jiaoshen.test;
 
-import com.google.common.collect.Collections2;
-
-import java.util.*;
-import java.util.stream.IntStream;
+import java.util.List;
 
 /**
  * @author jiaoshen
