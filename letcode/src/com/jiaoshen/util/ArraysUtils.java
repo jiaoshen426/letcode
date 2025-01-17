@@ -9,28 +9,31 @@ import java.util.Arrays;
 public class ArraysUtils {
     /**
      * 交换数组
+     *
      * @param a
      * @param x
      * @param y
      */
-     public static void swap(int[] a,int x,int y){
-         if(x!=y){
-             a[x]= a[x]^a[y];
-             a[y]=a[x]^a[y];
-             a[x]=a[x]^a[y];
-         }
-     }
+    public static void swap(int[] a, int x, int y) {
+        if (x != y) {
+            a[x] = a[x] ^ a[y];
+            a[y] = a[x] ^ a[y];
+            a[x] = a[x] ^ a[y];
+        }
+    }
 
     /**
      * 打印數組
+     *
      * @param a
      */
-     public static void  print(int[] a){
-         System.out.println(Arrays.toString(a)) ;
-     }
+    public static void print(int[] a) {
+        System.out.println(Arrays.toString(a));
+    }
 
     /**
      * 生成随机数组（正整数）
+     *
      * @param maxSize
      * @param maxValue
      * @return
@@ -38,13 +41,29 @@ public class ArraysUtils {
     public static int[] generateRandomArray(int maxSize, int maxValue) {
         int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) ((maxValue + 1) * Math.random()) ;
+            arr[i] = (int) ((maxValue + 1) * Math.random());
         }
         return arr;
     }
 
+    public static int[] getRandomArrayNoRepeat(int size) {
+        int[] arr = new int[(int) (Math.random() * size) + 1];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            int swapIndex = (int) (Math.random() * arr.length);
+            int tmp = arr[swapIndex];
+            arr[swapIndex] = arr[i];
+            arr[i] = tmp;
+        }
+        return arr;
+    }
+
+
     /**
      * 数组复制
+     *
      * @param arr
      * @return
      */
@@ -78,8 +97,18 @@ public class ArraysUtils {
         return true;
     }
 
+    public static boolean isEqual(int[][] res1, int[][] res2) {
+        if (res1.length != res2.length) {
+            return false;
+        }
+        for (int i = 0; i < res1.length; i++) {
+            if (res1[i][0] != res2[i][0] || res1[i][1] != res2[i][1]) {
+                return false;
+            }
+        }
 
-
+        return true;
+    }
 
 
 }
